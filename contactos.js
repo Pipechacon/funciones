@@ -26,5 +26,24 @@ function eliminarContacto(id) {
   } else {
     return null; 
   }
+
+  function actualizarContacto(id, nuevosDatos) {
+  const indice = contactos.findIndex((contacto) => contacto.id === id);
+
+  if (indice !== -1) {
+    const contactoActualizado = {
+      ...contactos[indice], 
+      ...nuevosDatos, 
+      id: id, 
+    };
+
+    contactos[indice] = contactoActualizado; 
+
+    return contactoActualizado;
+  } else {
+    return null;
+  }
+}
+
 }
 
